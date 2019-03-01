@@ -14,6 +14,9 @@
 
                 <string name="sujetSelect" title="Sujet" selection="helpdesk.ticket.sujet.select"/>
                 <string name="typeSujet" title="Type Sujet" selection="helpdesk.ticket.type.sujet.select" />
+	  <string name="partenaireSelect" title="Partenaire" selection="helpdesk.ticket.partenaire.select"/>
+	  <string name="motifSAV" title="Motif SAV : " />
+	  
 	        <!-- Contrat  -->
                 <string name="numCtr" title="N° de Contrat :" max="11"/>
 		<string name="nomCommercial" title="Commercial En Charge :" max="30" />
@@ -28,17 +31,26 @@
 		<string name="efsSelect" title="EFS" selection="helpdesk.ticket.efs.select"/>
 		<string name="groupamaSelect" title="Groupama" selection="helpdesk.ticket.groupama.select"/>
 		<string name="typeContrat" title="Type Contrat" selection="helpdesk.ticket.type.contrat.select"/>
-
-		<string name="partenaireSelect" title="Partenaire" selection="helpdesk.ticket.partenaire.select"/>		
-
+		<boolean name="checkNeuf" title="Neuf" default="false" />
+		<boolean name="checkRecon" title="Reconditionné" default="false" />
+			
+	<!-- Champs Custom Materiel -->
+	  
 		<string name="numIMEI" title="N° IMEI :" />
                 <string name="numSim" title="N° Sim :" />
+	  	
                 <string name="modele" title="Modele :" />
                 <string name="numTransmetteur" title="N° du Transmetteur :" />
                 <string name="numSerie" title="N° Serie :" />
-		<string name="motifSAV" title="Motif SAV : " />
+		<string name="carteSim" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
+		
+		<boolean name="checkFacturation1" title="A Facturer" default="false" />
+		<string name="contreAppel1" title="Contre-Appel :" />
+		
+		
 		
 		      
+	  <!-- Custom Options -->
 		<boolean name="detecteurChute" title="Detecteur de Chute" default="false" />
 		<integer name="qteDetecteur" title="Quantité" />
 		<boolean name="facturationDetec" title="A Facturer" />
@@ -51,9 +63,9 @@
 
 		<boolean name="boiteCle" title="Boite à Clé" default="false" />
                 <boolean name="facturationBoite" title="A Facturer" />
-		<string name="carteSim" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
-		<string name="carteSimMontre" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
-
+	  
+	  	
+	  
 		<!-- Montre -->
 
                 <boolean name="optAidantMontre" title="Option Aidant" default="false"/>
@@ -67,7 +79,11 @@
 		<string name="modeLivraison" title="Livraison" selection="helpdesk.ticket.mode.livraison.select"/>
 		<string name="adressCtr" title="Adresse :" />
 		<date name="exped" title="Date Expedition" />
+	  <string name="contreAppelMontre" title="Contre-Appel Montre :" />
+	  <string name="carteSimMontre" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
+	  <string name="numSimMontre" title="N° Sim :" />
 
+	  <!-- Button en plus pour prochains produits -->
 
 		<boolean name="checkCustom1" default="false"/>
 		<boolean name="checkCustom2" default="false"/>
@@ -110,15 +126,10 @@
                 <string name="stringCustom18" />
                 <string name="stringCustom19" />
                 <string name="stringCustom20" />
-		
-		<boolean name="checkNeuf" title="Neuf" default="false" />
-		<boolean name="checkRecon" title="Reconditionné" default="false" />	
 	
-		<boolean name="checkFacturation1" title="A Facturer" default="false" />
-		<string name="contreAppel1" title="Contre-Appel :" />
-		<string name="contreAppelMontre" title="Contre-Appel Montre :" />
-		<string name="numSimMontre" title="N° Sim :" />
 
+	  
+	  
 		<string name="ticketSeq" title="Ticket Number" readonly="true" />
 		<many-to-one name="project" ref="com.axelor.apps.project.db.Project" title="Project"/>
 		<many-to-one name="customer" ref="com.axelor.apps.base.db.Partner" title="Customer"/>
