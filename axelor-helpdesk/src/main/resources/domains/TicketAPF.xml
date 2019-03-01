@@ -85,9 +85,11 @@
 
                         <!-- Expedition -->
                         <date name="exped" title="Date Expedition" />
-
+		
+	  	<!-- Button Validation Arkea -->
 		<boolean name="arkeaOkAPF" title="Arkea Ok" default="false" />		
-
+	
+	  <!-- Button En Plus pour prochains produits -->
 		<boolean name="checkAPFCustom1" default="false" />
 		<boolean name="checkAPFCustom2" default="false" />
 		<boolean name="checkAPFCustom3" default="false" />
@@ -98,6 +100,7 @@
 		<string name="stringAPFCustom3" />
 		<string name="stringAPFCustom4" />
 
+	  
 		<many-to-one name="project" ref="com.axelor.apps.project.db.Project" title="Project"/>
 		<many-to-one name="customer" ref="com.axelor.apps.base.db.Partner" title="Customer"/>
 		<many-to-one name="contactPartner" ref="com.axelor.apps.base.db.Partner" title="Customer contact"/>
