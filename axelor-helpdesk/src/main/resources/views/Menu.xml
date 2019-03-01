@@ -28,6 +28,8 @@
 		<context name="_user" expr="eval: __user__"/>
 	</action-view>
 	
+	<!-- Custom Tickets APF enfant de la classe mere Ticket -->
+	
 	<menuitem title="APF tickets" name="helpdesk-APF-ticket-all" action="helpdesk.apf.ticket.all" order="-90" parent="helpdesk-root"/>
 
         <action-view name="helpdesk.apf.ticket.all" title="APF tickets" model="com.axelor.apps.helpdesk.db.TicketAPF">
