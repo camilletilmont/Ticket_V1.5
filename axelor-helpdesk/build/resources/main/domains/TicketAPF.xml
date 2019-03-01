@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+	<sequence name="ticket.apf.order.seq" initial="1" increment="1" padding="5" prefix="T-APF"/>
+
+  <module name="helpdesk" package="com.axelor.apps.helpdesk.db"/>
+
+  <entity name="TicketAPF" sequential="true" extends="Ticket">
+
+
+  <!--<string name="subject" title="Subject" required="true"/>    -->
+			<string name="ticketSeq" title="Ticket Number" readonly="true" sequence="ticket.apf.order.seq"/>
+        <!-- Champs Custom Ticket -->
+
+                <string name="sujetAPF" title="Sujet" default="APF"/>
+		<string name="matosAPF" title="Materiel" selection="helpdesk.ticket.materiel.apf.select"  />
+			
+
+		<string name="numIMEI" title="N° IMEI :" />
+                <string name="numSim" title="N° Sim :" />
+		<string name="modelMontre" title="Modele : " selection="helpdesk.ticket.model.montre.select" />
+                <string name="modele" title="Modele :" />
+                <string name="numTransmetteur" title="N° du Transmetteur :" />
+                <string name="numSerie" title="N° Serie :" />
+
+		                        <!-- Reception -->
+                        <boolean name="recepTransmetteur" title="Transmetteur" default="false" />
+                        <boolean name="recepTab" title="Tablette" default="false" />
+                        <boolean name="recepMontre" title="Montre" default="false" />
+                        <boolean name="recepBoiterChargeur" title="Boitier Chargeur" default="false" />
+                        <boolean name="recepChargeur" title="Chargeur" default="false" />
+                        <boolean name="recepUsb" title="Cordon USB" default="false" />
+                        <boolean name="recepCordonTel" title="Cordon Téléphone" default="false" />
+                        <boolean name="recepPriseTel" title="Prise Téléphone Femelle" default="false" />
+                        <boolean name="recepAlim" title="Alimentation" default="false" />
+                        <boolean name="recepBouton" title="Bouton" default="false" />
+                        <boolean name="recepBracelet" title="Bracelet Anti-chute" default="false" />
+			<boolean name="recepVis" title="Vis" default="false" />
+                        <boolean name="recepSupportMural" title="Support Mural" default="false" />
+                        <boolean name="recepDoc" title="Doc. Client" default="false" />
+                        <string  name="recepEtat" selection="helpdesk.ticket.reception.etat.select" title="Etat" />
+                        <string  name="receptMotifTyn" title="Motif Etat :" selection="helpdesk.ticket.apf.etat.tynetec.select" />
+			<string  name="receptMotifTab" title="Motif Etat :" selection="helpdesk.ticket.apf.etat.tablette.select" />
+			<string  name="receptMotifMontre" title="Motif Etat :" selection="helpdesk.ticket.apf.etat.montre.select" />
+			<string  name="receptMotifSol" title="Motif Etat :" selection="helpdesk.ticket.apf.etat.solem.select" />
+                       <string name="motifEtatAutre" title="Autre :" />"
+			 <boolean name="recepPresenceSim" title="Présence Sim" default="false" />
+
+
+		  <!-- Check  -->
+			<boolean name="checkGoTraitement" title="Go Traitement" default="false"/>
+                        <boolean name="checkSolem" title="Config. Solem" default="false" />
+                        <boolean name="checkCharge" title="Charge" default="false" />
+                        <boolean name="checkFlash" title="Flashage ROM" default="false" />
+                        <boolean name="checkTyn" title="Config. Tyn" default="false"/>
+                        <boolean name="checkConfigBouton" title="Config. Bouton" default="false"/>
+                        <boolean name="checkTest" title="Tests" default="false"/>
+                        <string name="checkMotifPanneTyn" title="Motif(s) Panne(s) :" selection="helpdesk.ticket.apf.panne.tynetec.select" />
+			<string name="checkMotifPanneTab" title="Motif(s) Panne(s) :" selection="helpdesk.ticket.apf.panne.tablette.select" />
+			<string name="checkMotifPanneMontre" title="Motif(s) Panne(s) :" selection="helpdesk.ticket.apf.panne.montre.select" />
+			<string name="checkMotifPanneSol" title="Motif(s) Panne(s) :" selection="helpdesk.ticket.apf.panne.solem.select" />
+			
+
+                        <!-- Reconditionnement  -->
+                        <boolean name="reconTransmet" title="Transmetteur" default="false"/>
+                        <boolean name="reconTablette" title="Tablette" default="false" />
+                        <boolean name="reconMontre" title="Montre" default="false" />
+                        <boolean name="reconBoitier" title="Boitier Chargeur" default="false" />
+                        <boolean name="reconChargeur" title="Chargeur" default="false" />
+                        <boolean name="reconUsb" title="Cordon USB" default="false" />
+                        <boolean name="reconPresenceSim" title="Présence Sim" default="false" />
+                        <boolean name="reconCordonTel" title="Cordon Téléphone" default="false"/>
+                        <boolean name="reconPriseTel" title="Prise Téléphone Femelle" default="false"/>
+                        <boolean name="reconAlim" title="Alim." default="false"/>
+                        <boolean name="reconVis" title="Vis" default="false"/>
+                        <boolean name="reconSupportMural" title="Support Mural" default="false" />
+                        <boolean name="reconBouton" title="Bouton" default="false"/>
+                        <boolean name="reconBraceletChute" title="Bracelet Anti-chute" default="false"/>
+                        <boolean name="reconSachet" title="Sachet Accessoires" default="false"/>
+                        <boolean name="reconAccessoires" title="Accessoires" default="false" />
+                        <boolean name="reconNotice" title="Notice" default="false"/>
+                        <string name="reconAutre" title="Autre :"/>
+
+                        <!-- Expedition -->
+                        <date name="exped" title="Date Expedition" />
+
+		<boolean name="arkeaOkAPF" title="Arkea Ok" default="false" />		
+
+		<boolean name="checkAPFCustom1" default="false" />
+		<boolean name="checkAPFCustom2" default="false" />
+		<boolean name="checkAPFCustom3" default="false" />
+		<boolean name="checkAPFCustom4" default="false" />
+
+		<string name="stringAPFCustom1" />
+		<string name="stringAPFCustom2" />
+		<string name="stringAPFCustom3" />
+		<string name="stringAPFCustom4" />
+
+		<many-to-one name="project" ref="com.axelor.apps.project.db.Project" title="Project"/>
+		<many-to-one name="customer" ref="com.axelor.apps.base.db.Partner" title="Customer"/>
+		<many-to-one name="contactPartner" ref="com.axelor.apps.base.db.Partner" title="Customer contact"/>
+		<many-to-one name="slaPolicy" ref="com.axelor.apps.helpdesk.db.Sla" title="SLA Policy"/>
+		<many-to-one name="assignedToUser" ref="com.axelor.auth.db.User" title="Assigned to"/>
+		<many-to-one name="responsibleUser" ref="com.axelor.auth.db.User" title="User in charge of the issue"/>
+		<integer name="statusSelect" selection="helpdesk.status.apf.select" title="Status"/>
+		<many-to-one name="ticketType" ref="com.axelor.apps.helpdesk.db.TicketType" title="Ticket type"/>
+		<datetime name="startDateT" title="Start date"/>
+		<datetime name="endDateT" title="End date"/>
+		<datetime name="deadlineDateT" title="Deadline"/>
+		<boolean name="isSlaCompleted" title="SLA completed" default="false"/>
+		<long name="duration" title="Duration"/>
+		<string name="description" title="Description" large="true"/>
+		<integer name="progressSelect" title="Progress (%)" selection="helpdesk.ticket.progress.select"/>
+		<integer name="prioritySelect" title="Priority" selection="helpdesk.priority.select" default="2"/>
+		<string name="mailSubject"/>
+		<one-to-many name="timerList" ref="com.axelor.apps.base.db.Timer"/>
+		<decimal name="realTotalDuration" title="Real total duration (Hours)" min="0" default="0" />
+		<boolean name="timerState" readonly="true"/>
+
+		<extra-code>
+                        <![CDATA[
+                                public static final int STATUS_NEW = 0;
+                                public static final int STATUS_IN_PROGRESS = 0;
+                                public static final int STATUS_RESOLVED = 0;
+                                public static final int STATUS_CLOSED = 0;
+                        ]]>
+                </extra-code>
+
+
+		<track>
+		  <field name="ticketSeq"/>
+	      <field name="sujetAPF" />
+	      <field name="statusSelect" on="UPDATE"/>
+	      <message if="true" on="CREATE">Ticket created</message>
+	      <message if="statusSelect == 1" tag="info">Ticket In Progress</message>
+	     <message if="statusSelect == 2" tag="info">Ticket In Resolved</message>
+		 <message if="statusSelect == 3" tag="success">Ticket Closed</message>
+    	</track>
+		
+  </entity>
+  
+</domain-models>

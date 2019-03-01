@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+   
+	<selection name="helpdesk.priority.select">
+		<option value="1">Low</option>
+		<option value="2">Normal</option>
+		<option value="3">High</option>
+		<option value="4">Urgent</option>
+	</selection>
+	
+	<selection name="helpdesk.status.select">
+		<option value="0">Nouveau</option>
+		<option value="1">En Attente</option>
+		<option value="2">In Progress</option>
+		<option value="3">Resolved</option>
+		<option value="4">Closed</option>
+	</selection>
+
+	 <selection name="helpdesk.ticket.custom.un.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+
+	<selection name="helpdesk.ticket.custom.deux.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+
+	<selection name="helpdesk.status.apf.select">
+                <option value="0">Récupération Matériel</option>
+                <option value="1">Transmission Arkea</option>
+		<option value="2">Reconditionnement</option>
+                <option value="3">Expédié Arkea</option>
+        </selection>
+	
+	<selection name="helpdesk.ticket.progress.select">
+		<option value="0">0 %</option>
+		<option value="10">10 %</option>
+		<option value="20">20 %</option>
+		<option value="30">30 %</option>
+		<option value="40">40 %</option>
+		<option value="50">50 %</option>
+		<option value="60">60 %</option>
+		<option value="70">70 %</option>
+		<option value="80">80 %</option>
+		<option value="90">90 %</option>
+		<option value="100">100 %</option>
+	</selection>
+	
+	<selection name="sequence.generic.code.select" id="helpdesk.sequence.generic.code.select">
+		<option value="ticket">Ticket</option>
+		<option value="ticketAPF">Ticket APF</option>
+	</selection>
+
+		<!-- Select Custom -->
+
+		<selection name="helpdesk.ticket.mode.livraison.select">
+                        <option value="CCM">CCM</option>
+			<option value="Partenaire">Partenaire</option>
+			<option value="Domicile Client">Domicile Client</option>
+			<option value="Autre">Autre</option>	
+		</selection>
+
+		<selection name="helpdesk.ticket.model.montre.select">
+                        <option value="SIM Valley">SIM Valley</option>
+                        <option value="Omate 1">Omate 1</option>
+			<option value="Omate 2">Omate 2</option>
+                        <option value="Omate S3">Omate S3</option>
+			<option value="Omate S3VC">Omate S3VC</option>
+                        <option value="Passion 4">Passion 4</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.sim.select">
+			<option value="Orange">Orange</option>
+			<option value="KPN">KPN</option>
+		</selection>
+
+                <selection name="helpdesk.ticket.type.contrat.select">
+			<option value="Individuel">Individuel</option>
+			<option value="Couple">Couple</option>
+		</selection>
+
+                 <selection name="helpdesk.ticket.materiel.domicile.select">
+			<option value="Tablette">Tablette</option>
+			<option value="Solem">Solem</option>
+			<option value="Tynetec">Tynetec</option>
+			<option value="Autre">Autre</option>
+		</selection>
+
+                 <selection name="helpdesk.ticket.materiel.apf.select">
+			<option value="Tablette">Tablette</option>
+                        <option value="Solem">Solem</option>
+                        <option value="Tynetec">Tynetec</option>
+                       	<option value="Montre">Montre</option>
+                </selection>
+
+                <selection name="helpdesk.ticket.type.sujet.select">
+			<option value="SAV">SAV</option>
+                        <option value="Souscription">Souscription</option>
+                        <option value="Avenant">Avenant</option>
+                </selection>
+
+		 <selection name="helpdesk.ticket.reception.etat.select">
+                        <option value="Bon">Bon</option>
+                        <option value="Moyen">Moyen</option>
+                        <option value="Mauvais">Mauvais</option>
+                </selection>
+
+		 <selection name="helpdesk.ticket.efs.select">
+                        <option value="CMB">CMB</option>
+                        <option value="CMMC">CMMC</option>
+                        <option value="CMSO">CMSO</option>
+                        <option value="BPE">BPE</option>
+			<option value="Hors Territoire">Hors Territoire</option>
+                        <option value="Groupama">Groupama</option>
+                        <option value="AOL B2B">AOL B2B</option>
+                        <option value="Autre">Autre</option>
+                </selection>
+		
+		<selection name="helpdesk.ticket.sujet.select">
+			<option value="Previ-assistance Standard">Previ-assistance Standard</option>
+			<option value="Previ-assistance Standard + Mobile">Previ-assistance Standard + Mobile</option>
+                        <option value="Previ-assistance Premium">Previ-assistance Premium</option>
+			<option value="Previ-assistance Premium + Mobile">Previ-assistance Premium + Mobile</option>
+			<option value="Previ-assistance Mobile">Previ-assistance Mobile</option>
+                        <option value="Travailleur Isole">Travailleur Isole (PTI/DATI)</option>
+                        <option value="Autre">Autre</option>
+		</selection>
+
+
+		<selection name="helpdesk.ticket.apf.etat.tynetec.select">
+			<option value="Rayure Façade">Rayure Façade</option>
+			<option value="Bouton(s) boitier rayé(s)">Bouton(s) boitier rayé(s)</option>
+			<option value="Autre">Autre</option>
+		</selection>
+
+		<selection name="helpdesk.ticket.apf.panne.tynetec.select">
+                        <option value="Impossibilité de joindre centre d'écoute">Impossibilité de joindre centre d'écoute</option>
+                        <option value="Pavé Numérique non fonctionnel">Pavé Numérique non fonctionnel</option>
+			<option value="Micro HS">Micro HS</option>
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.etat.tablette.select">
+                        <option value="Rayure Façade">Rayure Façade</option>
+                        <option value="Bouton Rouge Abîmé">Bouton Rouge Abîmé</option>
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.panne.tablette.select">
+                        <option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.etat.solem.select">
+                        <option value="Rayure Façade">Rayure Façade</option>
+                        <option value="Bouton(s) Abîmé(s)">Bouton(s) Abîmé(s)</option>
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.panne.solem.select">
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.etat.montre.select">
+                        <option value="Rayure Façade">Rayure Façade</option>
+                        <option value="Attache Bracelet Cassée">Attache Bracelet Cassée</option>
+			<option value="Rayure Contour Montre">Rayure Contour Montre</option>
+			<option value="Bouton(s) Manquant(s)">Bouton(s) Manquant(s)</option>
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.panne.montre.select">
+                        <option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.etat.produit1.select">
+                        <option value="Autre">Autre</option>
+		</selection>		
+		<selection name="helpdesk.ticket.apf.panne.produit1.select">
+			<option value="Autre">Autre</option>
+                </selection>
+		
+		<selection name="helpdesk.ticket.apf.etat.produit2.select">
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.apf.panne.produit2.select">
+			<option value="Autre">Autre</option>
+                </selection>
+
+		<selection name="helpdesk.ticket.partenaire.select">
+			<option value="GDS">GDS</option>
+                        <option value="Cassiopea">Cassiopea</option>
+			<option value="Una marmande">Una marmande</option>
+			<option value="Cyprian">Cyprian</option>
+			<option value="Minifone">Minifone</option>
+			<option value="Senioradom">Senioradom</option>
+                </selection>
+		
+		<selection name="helpdesk.ticket.groupama.select">
+                        <option value="National">National</option>
+                        <option value="Regional">Regional</option>
+                        <option value="Sapara">Sapara</option>
+                        <option value="SOS">SOS</option>
+                </selection>
+
+</object-views>
+

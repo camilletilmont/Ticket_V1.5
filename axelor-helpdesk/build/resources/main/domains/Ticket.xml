@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+  <module name="helpdesk" package="com.axelor.apps.helpdesk.db"/>
+
+  <entity name="Ticket">
+
+
+  <!--<string name="subject" title="Subject" required="true"/>    -->
+
+        <!-- Champs Custom Ticket -->
+
+                <string name="sujetSelect" title="Sujet" selection="helpdesk.ticket.sujet.select"/>
+                <string name="typeSujet" title="Type Sujet" selection="helpdesk.ticket.type.sujet.select" />
+	        <!-- Contrat  -->
+                <string name="numCtr" title="N° de Contrat :" max="11"/>
+		<string name="nomCommercial" title="Commercial En Charge :" max="30" />
+                <string name="typeMaterielCtr" title="Materiel" selection="helpdesk.ticket.materiel.domicile.select"/> 
+                <string name="utilisateurCtr" title="Utilisateur :" />
+               	<string name="souscripteurCtr" title="Souscripteur :" />
+		 <boolean name="testCtr" title="Test" default="false" />
+                <boolean name="demoCtr" title="Demo" default="false" />
+                <boolean name="pretCtr" title="Pret" default="false" />
+		<datetime name="debutPret" title="Debut Pret" />
+		<datetime name="finPret" title="Fin Pret" />
+		<string name="efsSelect" title="EFS" selection="helpdesk.ticket.efs.select"/>
+		<string name="groupamaSelect" title="Groupama" selection="helpdesk.ticket.groupama.select"/>
+		<string name="typeContrat" title="Type Contrat" selection="helpdesk.ticket.type.contrat.select"/>
+
+		<string name="partenaireSelect" title="Partenaire" selection="helpdesk.ticket.partenaire.select"/>		
+
+		<string name="numIMEI" title="N° IMEI :" />
+                <string name="numSim" title="N° Sim :" />
+                <string name="modele" title="Modele :" />
+                <string name="numTransmetteur" title="N° du Transmetteur :" />
+                <string name="numSerie" title="N° Serie :" />
+		<string name="motifSAV" title="Motif SAV : " />
+		
+		      
+		<boolean name="detecteurChute" title="Detecteur de Chute" default="false" />
+		<integer name="qteDetecteur" title="Quantité" />
+		<boolean name="facturationDetec" title="A Facturer" />
+
+		<boolean name="bonRetour" title="Bon de Retour" default="false" />
+
+		<boolean name="bouton" title="Bouton" default="false" />
+		<integer name="qteBouton" title="Quantité" />
+                <boolean name="facturationBouton" title="A Facturer" />
+
+		<boolean name="boiteCle" title="Boite à Clé" default="false" />
+                <boolean name="facturationBoite" title="A Facturer" />
+		<string name="carteSim" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
+		<string name="carteSimMontre" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
+
+		<!-- Montre -->
+
+                <boolean name="optAidantMontre" title="Option Aidant" default="false"/>
+                <boolean name="sortiePerimMontre" title="Option Sortie de périmètre" default="false"/>
+                <integer name="rayonPerimMontre" title="Rayon de périmètre (en mètres) :"/>
+		<string name="modelMontre" title="Modele" selection="helpdesk.ticket.model.montre.select" />
+                <string name="desti1Montre" title="Destinataire SMS 1 :" max="14"/>
+                <string name="desti2Montre" title="Destinataire SMS 2 :" max="14"/>
+                <string name="desti3Montre" title="Destinataire SMS 3 :" max="14"/>
+                <string name="smsOdyssey" title="SMS Odyssey :" />
+		<string name="modeLivraison" title="Livraison" selection="helpdesk.ticket.mode.livraison.select"/>
+		<string name="adressCtr" title="Adresse :" />
+		<date name="exped" title="Date Expedition" />
+
+
+		<boolean name="checkCustom1" default="false"/>
+		<boolean name="checkCustom2" default="false"/>
+		<boolean name="checkCustom3" default="false"/>
+		<boolean name="checkCustom4" default="false"/>
+		<boolean name="checkCustom5" default="false"/>
+                <boolean name="checkCustom6" default="false"/>
+                <boolean name="checkCustom7" default="false"/>
+                <boolean name="checkCustom8" default="false"/>
+		<boolean name="checkCustom9" default="false"/>
+                <boolean name="checkCustom10" default="false"/>
+                <boolean name="checkCustom11" default="false"/>
+                <boolean name="checkCustom12" default="false"/>
+		<boolean name="checkCustom13" default="false"/>
+                <boolean name="checkCustom14" default="false"/>
+                <boolean name="checkCustom15" default="false"/>
+                <boolean name="checkCustom16" default="false"/>
+		<boolean name="checkCustom17" default="false"/>
+                <boolean name="checkCustom18" default="false"/>
+                <boolean name="checkCustom19" default="false"/>
+                <boolean name="checkCustom20" default="false"/>
+
+		<string name="stringCustom1" />
+		<string name="stringCustom2" />
+		<string name="stringCustom3" />
+		<string name="stringCustom4" />
+		 <string name="stringCustom5" />
+                <string name="stringCustom6" />
+                <string name="stringCustom7" />
+                <string name="stringCustom8" />
+		 <string name="stringCustom9" />
+                <string name="stringCustom10" />
+                <string name="stringCustom11" />
+                <string name="stringCustom12" />
+		 <string name="stringCustom13" />
+                <string name="stringCustom14" />
+                <string name="stringCustom15" />
+                <string name="stringCustom16" />
+		 <string name="stringCustom17" />
+                <string name="stringCustom18" />
+                <string name="stringCustom19" />
+                <string name="stringCustom20" />
+		
+		<boolean name="checkNeuf" title="Neuf" default="false" />
+		<boolean name="checkRecon" title="Reconditionné" default="false" />	
+	
+		<boolean name="checkFacturation1" title="A Facturer" default="false" />
+		<string name="contreAppel1" title="Contre-Appel :" />
+		<string name="contreAppelMontre" title="Contre-Appel Montre :" />
+		<string name="numSimMontre" title="N° Sim :" />
+
+		<string name="ticketSeq" title="Ticket Number" readonly="true" />
+		<many-to-one name="project" ref="com.axelor.apps.project.db.Project" title="Project"/>
+		<many-to-one name="customer" ref="com.axelor.apps.base.db.Partner" title="Customer"/>
+		<many-to-one name="contactPartner" ref="com.axelor.apps.base.db.Partner" title="Customer contact"/>
+		<many-to-one name="slaPolicy" ref="com.axelor.apps.helpdesk.db.Sla" title="SLA Policy"/>
+		<many-to-one name="assignedToUser" ref="com.axelor.auth.db.User" title="Assigned to"/>
+		<many-to-one name="responsibleUser" ref="com.axelor.auth.db.User" title="User in charge of the issue"/>
+		<integer name="statusSelect" selection="helpdesk.status.select" title="Status"/>
+		<many-to-one name="ticketType" ref="com.axelor.apps.helpdesk.db.TicketType" title="Ticket type"/>
+		<datetime name="startDateT" title="Start date"/>
+		<datetime name="endDateT" title="End date"/>
+		<datetime name="deadlineDateT" title="Deadline"/>
+		<boolean name="isSlaCompleted" title="SLA completed" default="false"/>
+		<long name="duration" title="Duration"/>
+		<string name="description" title="Description" large="true"/>
+		<integer name="progressSelect" title="Progress (%)" selection="helpdesk.ticket.progress.select"/>
+		<integer name="prioritySelect" title="Priority" selection="helpdesk.priority.select" default="2"/>
+		<string name="mailSubject"/>
+		<one-to-many name="timerList" ref="com.axelor.apps.base.db.Timer"/>
+		<decimal name="realTotalDuration" title="Real total duration (Hours)" min="0" default="0" />
+		<boolean name="timerState" readonly="true"/>
+
+		<extra-code>
+			<![CDATA[
+				public static final int STATUS_NEW = 0;
+				public static final int STATUS_IN_PROGRESS = 0;
+				public static final int STATUS_RESOLVED = 0;
+				public static final int STATUS_CLOSED = 0;
+			]]>
+		</extra-code>
+
+		<track>
+		  <field name="ticketSeq"/>
+	      <field name="sujetSelect" />
+	      <field name="statusSelect" on="UPDATE"/>
+	      <message if="true" on="CREATE">Ticket created</message>
+	      <message if="statusSelect == 1" tag="info">Ticket In Progress</message>
+	      <message if="statusSelect == 2" tag="success">Ticket In Resolved</message>
+	      <message if="statusSelect == 3" tag="info">Ticket Closed</message>
+    	</track>
+		
+  </entity>
+  
+</domain-models>

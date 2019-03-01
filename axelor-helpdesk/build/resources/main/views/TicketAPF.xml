@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+
+	<grid name="ticketAPF-grid" title="All tickets" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="ticketSeq"/>
+		  <field name="sujetAPF" readonly="true"/>
+		  <field name="startDateT"/>
+		  <field name="statusSelect"/>
+		  <field name="matosAPF"/>
+		  <field name="numTransmetteur"/>
+		  <field name="numSim"/>
+		  <field name="numSerie"/>
+		  <field name="modele"/>
+		  <field name="exped"/>
+
+	</grid>
+
+
+
+	<form model="com.axelor.apps.helpdesk.db.TicketAPF" title="Ticket APF" name="ticketAPF-form" onNew="action-ticket2-group-on-new" >
+		<panel name="mainPanel" colSpan="12">
+			<field name="statusSelect" colSpan="12" readonly="true" widget="NavSelect" showTitle="false" onChange="action-record-to-set-progress-select"/>
+			<field name="ticketSeq" showTitle="false">
+				<viewer depends="ticketSeq">
+					<![CDATA[
+						<h3>
+							<span  style="margin: 5px 0 !important; display: inline-table; line-height: initial;"><span x-translate>Ticket N° </span>{{record.ticketSeq}}</span>
+						</h3>
+					]]>
+				</viewer>
+			</field>
+			<panel name="progressPanel" colSpan="6" itemSpan="12" hidden="true">
+				<field name="progressSelect" widget="SelectProgress">
+					<editor>
+						<field name="progressSelect" colSpan="6" showTitle="false"/>
+					</editor>
+				</field>
+			</panel>
+		<!--	<field name="subject" colSpan="12"/> -->
+			<field name="sujetAPF" readonly="true" />
+			<field name="matosAPF" />		
+		<!--	<field name="mailSubject"/> -->
+
+			<field name="slaPolicy" showTitle="false" readonly="true" hideIf="statusSelect >= slaPolicy.reachStageSelect">
+				<viewer><![CDATA[
+					<h3>
+			        	<span class="label label-important" ng-if="record.slaPolicy">{{record.slaPolicy.name}}</span>
+			        </h3>
+				]]></viewer>
+			</field>
+		</panel>
+		
+		<!-- Panel partner et client mis en hidden -->
+
+		<panel name="otherDetailsPanel" colSpan="12" hidden="true">
+			<field name="project" if-module="axelor-project" onChange="action-ticket2-record-value-on-customer-and-contact" form-view="helpdesk-project-form" grid-view="helpdesk-project-grid"/>
+			<field name="customer" domain="self.isCustomer = true" form-view="partner-form" grid-view="partner-grid"/>
+			<field name="contactPartner" onSelect="action-ticket2-domain-on-contact-partner" form-view="partner-contact-form" grid-view="partner-contact-grid"/>
+		</panel>
+
+
+		 <!-- Panel Custom Tynetec -->
+
+                <!-- Tynetec -->
+
+                <panel name="tynTransPanel" title="Tynetec" colSpan="12" showIf="matosAPF == 'Tynetec'" >
+                        <field name="numSerie" min="8" max="8" />
+                        <field name="modele" min="6" max="6" />
+                </panel>
+                 <!-- Reception -->
+                <panel name="recepTynPanel" title="Reception Tynetec" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tynetec'">
+                        <field name="recepTransmetteur" widget="inline-checkbox" />
+                        <field name="recepCordonTel" widget="inline-checkbox"/>
+                        <field name="recepPriseTel" widget="inline-checkbox"/>
+                        <field name="recepAlim" widget="inline-checkbox"/>
+                        <field name="recepBouton" widget="inline-checkbox"/>
+                        <field name="recepVis" widget="inline-checkbox"/>
+                         <field name="recepDoc" widget="inline-checkbox" colSpan="12"/>
+                        <field name="recepEtat" colSpan="6"/>
+                        <field name="receptMotifTyn" colSpan="6"/>
+			<field name="motifEtatAutre" colSpan="12" showIf="receptMotifTyn == 'Autre'" />
+                </panel>
+
+                 <!-- Check  -->
+                <panel name="checkTynPanel" title="Check Tynetec" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tynetec'">
+                        <field name="checkGoTraitement" widget="inline-checkbox"/>
+                        <field name="checkTyn" widget="inline-checkbox"/>
+                        <field name="checkConfigBouton" widget="inline-checkbox"/>
+                        <field name="checkTest" widget="inline-checkbox"/>
+                </panel>
+
+                <!-- Reconditionnement  -->
+                <panel name="reconTynPanel" title="Reconditionnement Tynetec" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tynetec'">
+                        <field name="reconTransmet" widget="inline-checkbox"/>
+                        <field name="reconCordonTel" widget="inline-checkbox"/>
+                        <field name="reconPriseTel" widget="inline-checkbox"/>
+                        <field name="reconAlim" widget="inline-checkbox"/>
+                        <field name="reconVis" widget="inline-checkbox"/>
+                        <field name="reconBouton" widget="inline-checkbox"/>
+                        <field name="reconBraceletChute" widget="inline-checkbox"/>
+                        <field name="reconSachet" widget="inline-checkbox"/>
+                        <field name="reconNotice" colSpan="12" widget="inline-checkbox"/>
+                        <field name="reconAutre" colSpan="6"/>
+			<field name="checkMotifPanneTyn" colSpan="6"/>
+                </panel>
+                <!-- Expedition-->
+                <panel name="expTynPanel" title="Expedition Tynetec" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tynetec'">
+                        <field name="exped" />
+                </panel>
+
+
+		 <!-- Panel Custom Solem -->
+
+                <!-- Solem -->
+
+                <panel name="solTransPanel" title="Solem" colSpan="12" showIf="matosAPF == 'Solem'" >
+                        <field name="numTransmetteur" min="8" max="8" />
+                        <field name="numSerie" min="10" max="10" />
+                </panel>
+                 <!-- Reception -->
+                <panel name="recepSolPanel" title="Reception Solem" colSpan="12" canCollapse="true" showIf="matosAPF == 'Solem'">
+                        <field name="recepTransmetteur" widget="inline-checkbox" />
+                        <field name="recepPresenceSim" widget="inline-checkbox"/>
+                        <field name="recepAlim" widget="inline-checkbox"/>
+                        <field name="recepBouton" widget="inline-checkbox"/>
+                         <field name="recepDoc" widget="inline-checkbox" colSpan="12"/>
+                        <field name="recepEtat" colSpan="6"/>
+                        <field name="receptMotifSol" colSpan="6"/>
+			<field name="motifEtatAutre" colSpan="12" showIf="receptMotifSol == 'Autre'" />
+                </panel>
+
+                 <!-- Check  -->
+                <panel name="checkSolPanel" title="Check Solem" colSpan="12" canCollapse="true" showIf="matosAPF == 'Solem'">
+                        <field name="checkSolem" widget="inline-checkbox"/>
+                        <field name="checkConfigBouton" widget="inline-checkbox"/>
+                        <field name="checkTest" widget="inline-checkbox"/>
+                </panel>
+
+                <!-- Reconditionnement  -->
+                <panel name="reconSolPanel" title="Reconditionnement Solem" colSpan="12" canCollapse="true" showIf="matosAPF == 'Solem'">
+                        <field name="reconTransmet" widget="inline-checkbox"/>
+                        <field name="reconPresenceSim" widget="inline-checkbox"/>
+                        <field name="reconAlim" widget="inline-checkbox"/>
+                        <field name="reconBouton" widget="inline-checkbox"/>
+                        <field name="reconAccessoires" widget="inline-checkbox"/>
+                        <field name="reconNotice" colSpan="12" widget="inline-checkbox"/>
+                        <field name="reconAutre" colSpan="6"/>
+			<field name="checkMotifPanneSol" colSpan="6"/>
+                </panel>
+                <!-- Expedition-->
+                <panel name="expSolPanel" title="Expedition Solem" colSpan="12" canCollapse="true" showIf="matosAPF == 'Solem'">
+                        <field name="exped" />
+                </panel>
+
+
+		  <!-- Panel Custom tablette -->
+
+                <!-- Tablette -->
+
+                <panel name="tabTransPanel" title="Tablette" colSpan="12" showIf="matosAPF == 'Tablette'" >
+                        <field name="numSerie" min="10" max="10" colSpan="5" />
+                        <field name="carteSim" colSpan="2" />
+			<field name="numSim" colSpan="5" min="13" max="19"/>
+                </panel>
+                 <!-- Reception -->
+                <panel name="recepTabPanel" title="Reception Tablette" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tablette'">
+                        <field name="recepTab" widget="inline-checkbox" />
+                        <field name="recepAlim" widget="inline-checkbox"/>
+                        <field name="recepBouton" widget="inline-checkbox"/>
+                        <field name="recepSupportMural" widget="inline-checkbox"/>
+                         <field name="recepDoc" widget="inline-checkbox" colSpan="12"/>
+                        <field name="recepEtat" colSpan="6"/>
+                        <field name="receptMotifTab" colSpan="6"/>
+			<field name="motifEtatAutre" colSpan="12" showIf="receptMotifTab == 'Autre'" />
+                </panel>
+
+                 <!-- Check  -->
+                <panel name="checkTabPanel" title="Check Tablette" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tablette'">
+                        <field name="checkFlash" widget="inline-checkbox"/>
+                        <field name="checkConfigBouton" widget="inline-checkbox"/>
+                </panel>
+
+                <!-- Reconditionnement  -->
+                <panel name="reconTabPanel" title="Reconditionnement Tablette" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tablette'">
+                        <field name="reconTablette" widget="inline-checkbox"/>
+                        <field name="reconAlim" widget="inline-checkbox"/>
+                        <field name="reconNotice" colSpan="12" widget="inline-checkbox"/>
+                        <field name="reconAutre" colSpan="6"/>
+			<field name="checkMotifPanneTab" colSpan="6"/>
+                </panel>
+                <!-- Expedition-->
+                <panel name="expTabPanel" title="Expedition Tablette" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tablette'">
+			<field name="exped" />
+                </panel>
+
+		 <!-- Panel Custom Montre -->
+
+                <!-- Montre -->
+
+                <panel name="montreTransPanel" title="Montre" colSpan="12" showIf="matosAPF == 'Montre'" >
+                        <field name="modelMontre" colSpan="5"/>
+			<field name="carteSimMontre" colSpan="2" />
+                        <field name="numSim" colSpan="5" min="13" max="19" />
+                </panel>
+                 <!-- Reception -->
+                <panel name="recepMontrePanel" title="Reception Montre" colSpan="12" canCollapse="true" showIf="matosAPF == 'Montre'">
+                        <field name="recepMontre" widget="inline-checkbox" />
+                        <field name="recepBoiterChargeur" widget="inline-checkbox"/>
+                        <field name="recepChargeur" widget="inline-checkbox"/>
+                        <field name="recepUsb" widget="inline-checkbox"/>
+                         <field name="recepDoc" widget="inline-checkbox" colSpan="12"/>
+                        <field name="recepEtat" colSpan="6"/>
+                        <field name="receptMotifMontre" colSpan="6"/>
+			<field name="motifEtatAutre" colSpan="12" showIf="receptMotifMontre == 'Autre'" />
+                </panel>
+
+                 <!-- Check  -->
+                <panel name="checkMontrePanel" title="Check Montre" colSpan="12" canCollapse="true" showIf="matosAPF == 'Montre'">
+                        <field name="checkCharge" widget="inline-checkbox"/>
+                        <field name="checkFlash" widget="inline-checkbox"/>
+                </panel>
+
+                <!-- Reconditionnement  -->
+                <panel name="reconMontrePanel" title="Reconditionnement Montre" colSpan="12" canCollapse="true" showIf="matosAPF == 'Montre'">
+                        <field name="reconMontre" widget="inline-checkbox"/>
+                        <field name="reconBoitier" widget="inline-checkbox"/>
+                        <field name="reconChargeur" widget="inline-checkbox"/>
+                        <field name="reconUsb" widget="inline-checkbox"/>
+                        <field name="reconNotice" colSpan="12" widget="inline-checkbox"/>
+                        <field name="reconAutre" colSpan="6"/>
+			<field name="checkMotifPanneMontre" colSpan="6"/>
+                </panel>
+                <!-- Expedition-->
+                <panel name="expMontrePanel" title="Expedition Montre" colSpan="12" canCollapse="true" showIf="matosAPF == 'Montre'">
+                        <field name="exped" />
+                </panel>
+
+
+
+
+        <panel-tabs name="mainPanelTab">
+		    <panel name="descriptionPanel" colSpan="12" title="Description">
+			    <field name="description" showTitle="false" colSpan="12" widget="html"/>
+		    </panel>
+
+		    <panel name="timerPanel" title="Timer" showIf="id" hidden="true" sidebar="true" if="__config__.app.getApp('helpdesk').getManageTimer()">
+			    <button name="startTimerBtn" title="Start" icon="fa-play" colSpan="4" hidden="true"
+				    onClick="action-ticket2-method-start-timer"/>
+			    <button name="stopTimerBtn" title="Stop" icon="fa-pause" colSpan="4" hidden="true"
+				    onClick="action-ticket2-method-stop-timer"/>
+			    <button name="cancelTimerBtn" title="Cancel" icon="fa-times-circle" colSpan="4"
+				    hidden="true" onClick="action-ticket2-method-cancel-timer" css="btn-danger"/>
+			    <field name="$_totalTimerDuration" type="decimal" readonly="true"
+				    title="Total duration (Hours)" colSpan="4"/>
+				<field name="realTotalDuration" colSpan="4"/>
+				<field name="timerState" hidden="true" colSpan="4"/>
+		    </panel>
+        </panel-tabs>
+
+		<panel name="actionsPanel" sidebar="true">
+                        <button name="transTicketBtn" title="Transmission Arkea"  icon="fa-play" hideIf="statusSelect > 0" onClick="save,action-ticket2-group-on-start"/>
+                        <button name="reconTicketBtn" title="Reconditionnement" hideIf="statusSelect > 1" onClick="save,action-ticket2-group-on-validate"/>
+                        <button name="expedTicketBtn" title="Expedié à Arkea" icon="fa-check" css="btn-danger" hideIf="statusSelect > 2" onClick="save,action-ticket2-group-on-close" readonlyIf="arkeaOkAPF == false"/>
+			<field name="arkeaOkAPF" widget="inline-checkbox" onChange="save"/>
+                </panel>
+
+		<panel name="characteristicsPanel" title="Characteristics" sidebar="true" canCollapse="true" hidden="true">
+			<field name="ticketType" colSpan="12"/>
+			<field name="prioritySelect" colSpan="6"/>
+			<field name="deadlineDateT" colSpan="6"/>
+			<field name="isSlaCompleted" hidden="true"/>
+		</panel>
+		<panel name="followupPanel" title="Follow-up" sidebar="true" canCollapse="true" hidden="true" >
+			<field name="assignedToUser" colSpan="6" form-view="user-form" grid-view="user-grid"/>
+			<field name="responsibleUser" colSpan="6" form-view="user-form" grid-view="user-grid"/>
+			<field name="lead" colSpan="6" form-view="lead-form" grid-view="lead-grid" if-module="axelor-crm" if="__config__.app.isApp('crm')"/>
+		</panel>
+		<panel name="datesPanel" title="Dates" sidebar="true" canCollapse="true">
+			<field name="startDateT" colSpan="6" onChange="action-ticket2-method-compute-from-start-date-time"/>
+			<field name="endDateT" colSpan="6" onChange="action-ticket2-method-compute-from-end-date-time"/>
+			<field name="duration" colSpan="6" widget="duration" x-big="true" onChange="action-ticket2-method-compute-from-duration"/>
+		</panel>
+		<panel name="attrsPanel">
+			<field name="attrs" hidden="true"/>
+		</panel>
+		<panel-mail name="mailPanel">
+	    	<mail-messages limit="6"/>
+	    	<mail-followers/>
+	  	</panel-mail>
+	</form>
+
+	<calendar name="ticketAPF-calendar" model="com.axelor.apps.helpdesk.db.TicketAPF"
+	eventStart="startDateT"
+	eventStop="endDateT"
+	title="All tickets"
+	colorBy="assignedToUser"
+	>
+		<field name="sujetAPF"/>
+		<field name="statusSelect"/>
+	</calendar>
+
+	<kanban columnBy="statusSelect" sequenceBy="prioritySelect"  limit="10"
+	 name="ticketAPF-kanban" title="Tickets" model="com.axelor.apps.helpdesk.db.TicketAPF">
+	 <field name="ticketSeq"/>
+	 <field name="sujetAPF"/>
+	 <field name="progressSelect"/>
+	 <field name="project.name"/>
+	 <field name="ticketType"/>
+	 <hilite color="primary" if="prioritySelect == 1"/>
+	 <hilite color="info" if="prioritySelect == 2"/>
+	 <hilite color="warning" if="prioritySelect == 3"/>
+	 <hilite color="danger" if="prioritySelect == 4"/>
+	 <template>
+	 <![CDATA[
+     <h4>{{record.ticketSeq}}</h4>
+     <div class="card-body">
+    	<p>{{record.sujetAPF}}</p>
+        <dl>
+			<dt ng-show="record.progressSelect" x-translate>Progress</dt>
+			<dd ng-if="record.progressSelect == 80 || record.progressSelect == 90 || record.progressSelect == 100"><div class="progress progress-striped progress-success">
+            	<div class="bar" style="width: {{record.progressSelect}}%;"></div></div>
+            </dd>
+            <dd ng-if="record.progressSelect == 50 || record.progressSelect == 60 || record.progressSelect == 70"><div class="progress progress-striped progress-primary">
+            	<div class="bar" style="width: {{record.progressSelect}}%;"></div></div>
+            </dd>
+             <dd ng-if="record.progressSelect == 30 || record.progressSelect == 40"><div class="progress progress-striped progress-warning">
+            	<div class="bar" style="width: {{record.progressSelect}}%;"></div></div>
+            </dd>
+             <dd ng-if="record.progressSelect == 10 || record.progressSelect == 20"><div class="progress progress-striped progress-danger">
+            	<div class="bar" style="width: {{record.progressSelect}}%;"></div></div>
+            </dd>
+            <dt ng-show="record.project.name" x-translate>Project</dt><dd ng-show="record.project.name">{{record.project.name}}</dd>
+            <dt ng-show="record.ticketType.name" x-translate>Ticket Type</dt><dd ng-show="record.ticketType.name">{{record.ticketType.name}}</dd>
+        </dl>
+ 	 </div>
+     ]]>
+	 </template>
+	 </kanban>
+
+	<action-record name="action-ticket2-record-value-on-customer-and-contact" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="customer" expr="eval: project.clientPartner"/>
+		<field name="contactPartner" expr="eval: project.contactPartner"/>
+	</action-record>
+
+	<action-record name="action-ticket2-record-set-start-status" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="statusSelect" expr="1" if="statusSelect == 0"/>
+	</action-record>
+
+	<action-record name="action-ticket2-record-set-validate-status" model="com.axelor.apps.helpdesk.db.TicketAPF">
+                <field name="statusSelect" expr="2" if="statusSelect &lt;= 1"/>
+        </action-record>
+
+	<action-record name="action-ticket2-record-set-closed-status" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="statusSelect" expr="3" if="statusSelect &lt;= 2"/>
+	</action-record>
+
+	<action-record name="action-ticket2-record-to-set-progress-select" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="progressSelect" expr="100" if="statusSelect == 2"/>
+		<field name="progressSelect" expr="0" if="statusSelect != 2"/>
+	</action-record>
+
+	<action-record name="action-ticket2-record-to-fill-startDate" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="startDateT" expr="eval: __datetime__"/>
+	</action-record>
+
+	<action-record name="action-ticket2-record-to-fill-endDate" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="endDateT" expr="eval: __datetime__"/>
+	</action-record>
+
+	<action-record name="action-ticket2-record-set-customer" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<field name="customer" expr="eval: __user__?.partner" if="__user__?.partner?.isCustomer"/>
+	</action-record>
+
+	<action-group name="action-ticket2-group-on-new">
+		<action name="action-ticket2-record-to-fill-startDate"/>
+		<action name="action-ticket2-record-set-customer"/>
+	</action-group>
+
+	<action-group name="action-ticket2-group-on-start">
+		<action name="action-ticket2-method-start-timer"/>
+		<action name="action-ticket2-method-play"/>
+		<action name="action-ticket2-record-to-fill-startDate"/>
+		<action name="action-ticket2-method-compute-from-start-date-time"/>
+		<action name="action-ticket2-record-set-start-status"/>
+		<action name="save"/>
+	</action-group>
+
+	<action-group name="action-ticket2-group-on-validate">
+		<action name="action-ticket2-method-stop-timer"/>
+		<action name="action-ticket2-method-pause"/>
+		<action name="action-ticket2-method-compute-real-total-duration"/>
+		<action name="action-ticket2-record-to-fill-endDate"/>
+		<action name="action-ticket2-method-compute-from-end-date-time"/>
+		<action name="action-ticket2-record-set-validate-status"/>
+		<action name="action-ticket2-record-to-set-progress-select"/>
+		<action name="save"/>
+	</action-group>
+
+	<action-group name="action-ticket2-group-on-close">
+		<action name="action-ticket2-method-stop-timer"/>
+		<action name="action-ticket2-method-pause"/>
+		<action name="action-ticket2-method-compute-real-total-duration"/>
+		<action name="action-ticket2-record-set-closed-status"/>
+		<action name="save"/>
+	</action-group>
+
+	<action-group name="action-ticket2-group-on-pause">
+		<action name="action-ticket2-method-stop-timer"/>
+		<action name="action-ticket2-method-pause"/>
+		<action name="save"/>
+	</action-group>
+
+	<action-method name="action-ticket2-method-compute-from-start-date-time">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="computeFromStartDateTime"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-compute-from-duration">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="computeFromDuration"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-compute-from-end-date-time">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="computeFromEndDateTime"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-pause" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="timerStateOff"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-play" model="com.axelor.apps.helpdesk.db.TicketAPF">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="timerStateOn"/>
+	</action-method>
+<!--	
+	<action-attrs name="action-ticket-domain-on-contact-partner">
+		<attribute for="contactPartner" if="customer != null &amp;&amp; !customer.contactPartnerSet.empty" name="domain" expr="eval: &quot;self.id IN (${customer.contactPartnerSet?.collect{it.id}.join(',')})&quot;"/>
+ 		<attribute for="contactPartner" if="customer != null &amp;&amp; customer.contactPartnerSet.empty" name="domain" expr="eval: &quot;self.id IN (0)&quot;"/>
+ 		<attribute for="contactPartner" if="customer == null" name="domain" expr="eval: &quot;self.isContact = true&quot;"/>
+	</action-attrs>
+-->
+	<action-method name="action-ticket2-method-manage-timer-buttons">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="manageTimerButtons"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-compute-total-timer-duration">
+		<call class="com.axelor.apps.helpdesk.web.TicketController"
+			method="computeTotalTimerDuration"/>
+	</action-method>
+
+	<action-group name="action-ticket2-group-timer-process">
+		<action name="action-ticket2-method-manage-timer-buttons"/>
+		<action name="action-ticket2-method-compute-total-timer-duration"/>
+	</action-group>
+
+	<action-method name="action-ticket2-method-start-timer">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="startTimer"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-stop-timer">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="stopTimer"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-cancel-timer">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="cancelTimer"/>
+	</action-method>
+
+	<action-method name="action-ticket2-method-compute-real-total-duration">
+		<call class="com.axelor.apps.helpdesk.web.TicketController" method="computeRealDuration"/>
+	</action-method>
+
+
+</object-views>
