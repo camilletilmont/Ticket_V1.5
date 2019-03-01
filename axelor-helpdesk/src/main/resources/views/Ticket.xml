@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-
+		<!-- Custom Grid View -->
 	<grid name="ticket-grid" title="All tickets" model="com.axelor.apps.helpdesk.db.Ticket">
 		<field name="statusSelect"/>
 		<field name="startDateT"/>
@@ -31,7 +31,7 @@
 	</grid>
 
 
-
+	<!-- Custom Form View -->
 	<form model="com.axelor.apps.helpdesk.db.Ticket" title="Ticket" name="ticket-form" onNew="action-ticket-group-on-new" >
 		<panel name="mainPanel" colSpan="12">
 			<field name="statusSelect" colSpan="12" readonly="true" widget="NavSelect" showTitle="false" onChange="action-record-to-set-progress-select"/>
@@ -51,9 +51,8 @@
 					</editor>
 				</field>
 			</panel>
-		<!--	<field name="subject" colSpan="12"/> -->
-		<!--	<field name="mailSubject"/> -->
-
+		
+		<!-- Custom Sujet -->
 		 <field name="sujetSelect" required="true" />
   		 <field name="typeSujet" hideIf="sujetSelect == null"/>
 		<field name="partenaireSelect" hideIf="sujetSelect == null"/>
@@ -71,6 +70,8 @@
     			<field name="customer" domain="self.isCustomer = true" form-view="partner-form" grid-view="partner-grid"/>
     			<field name="contactPartner" onSelect="action-ticket-domain-on-contact-partner" form-view="partner-contact-form" grid-view="partner-contact-grid"/>
   		</panel>
+		
+		<!-- Custom Panel Souscription -->
   		<panel name="souscriptionPanel" title="Souscription" hideIf="typeSujet != 'Souscription'" colSpan="12" canCollapse="true">
    			<field name="numCtr" colSpan="6" min="10" max="10" />
     			<field name="souscripteurCtr" colSpan="6"/>
@@ -88,6 +89,9 @@
                 	<field name="checkRecon" widget="inline-checkbox" colSpan="3" />
                 	<field name="nomCommercial" colSpan="6" showIf="sujetSelect == 'Travailleur Isole'" />
   		</panel>
+		
+		<!-- Custom Panel SAV -->
+		
   		<panel name="savPanel" title="SAV" hideIf="typeSujet != 'SAV'" colSpan="12" canCollapse="true">
   			  <field name="numCtr" colSpan="6" min="10" max="10" />
   			 <field name="souscripteurCtr" colSpan="6"/>
@@ -101,6 +105,9 @@
 			<field name="checkFacturation1" widget="inline-checkbox" colSpan="3"/>
   			  <field name="nomCommercial" showIf="sujetSelect == 'Travailleur Isole'" colSpan="6"/>
   		</panel>
+		
+		<!-- Custom Panel Avenant -->
+		
   		<panel name="avenantPanel" title="Avenant" showIf="typeSujet == 'Avenant' &amp;&amp; sujetSelect != 'Travailleur Isole' &amp;&amp; sujetSelect != 'Previ-assistance Mobile' " colSpan="12" canCollapse="true">
   			  <field name="numCtr" colSpan="6" min="10" max="10" />
   			  <field name="souscripteurCtr" colSpan="6"/>
@@ -208,6 +215,8 @@
 		    </panel>
         </panel-tabs>
 
+		
+		<!-- Custom Panel Boutton adapté -->
 		 <panel name="actionsPanel" sidebar="true">
 			<button name="startTicketBtn" title="Start" icon="fa-play" hideIf="statusSelect > 0" onClick="save,action-ticket-group-on-start"/>
 			<button name="planTicketBtn" title="En Cours" hideIf="statusSelect > 1"  onClick="save,action-ticket-group-on-progress"/>
