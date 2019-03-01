@@ -2,7 +2,8 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-
+	<!-- Custom Grid View -->
+	
 	<grid name="ticketAPF-grid" title="All tickets" model="com.axelor.apps.helpdesk.db.TicketAPF">
 		<field name="ticketSeq"/>
 		  <field name="sujetAPF" readonly="true"/>
@@ -17,7 +18,7 @@
 
 	</grid>
 
-
+	<!-- Custom Form View -->
 
 	<form model="com.axelor.apps.helpdesk.db.TicketAPF" title="Ticket APF" name="ticketAPF-form" onNew="action-ticket2-group-on-new" >
 		<panel name="mainPanel" colSpan="12">
@@ -38,10 +39,11 @@
 					</editor>
 				</field>
 			</panel>
-		<!--	<field name="subject" colSpan="12"/> -->
+		<!--	Custom Sujet APF -->
+			
 			<field name="sujetAPF" readonly="true" />
 			<field name="matosAPF" />		
-		<!--	<field name="mailSubject"/> -->
+		
 
 			<field name="slaPolicy" showTitle="false" readonly="true" hideIf="statusSelect >= slaPolicy.reachStageSelect">
 				<viewer><![CDATA[
@@ -258,6 +260,8 @@
 				<field name="timerState" hidden="true" colSpan="4"/>
 		    </panel>
         </panel-tabs>
+		
+		<!-- Custom Panel Boutton Adapté -->
 
 		<panel name="actionsPanel" sidebar="true">
                         <button name="transTicketBtn" title="Transmission Arkea"  icon="fa-play" hideIf="statusSelect > 0" onClick="save,action-ticket2-group-on-start"/>
