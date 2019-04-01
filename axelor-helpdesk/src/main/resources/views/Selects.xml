@@ -94,7 +94,7 @@
 
 	<!-- Custom Modèle Tynetec -->
 	
-	<selection name="helpdesk.ticket.model.montre.select">
+	<selection name="helpdesk.ticket.model.tynetec.select">
 			<option value="ZSA 520">ZSA 520</option>
                         <option value="ZSA 521">ZSA 521</option>
 			<option value="ZSA 522">ZSA 522</option>
