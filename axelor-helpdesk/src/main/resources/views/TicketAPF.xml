@@ -162,7 +162,7 @@
                 <!-- Tablette -->
 
                 <panel name="tabTransPanel" title="Tablette" colSpan="12" showIf="matosAPF == 'Tablette'" >
-                        <field name="numSerie" min="10" max="10" colSpan="5" />
+                        <field name="numSerie" min="11" max="11" colSpan="5" />
                         <field name="carteSim" colSpan="2" />
 			<field name="numSim" title="N° Sim Orange :" colSpan="6" min="13" max="13" hideIf="carteSim != 'Orange'"/>
     			<field name="numSim" title="N° Sim KPN" colSpan="6" min="19" max="19" hideIf="carteSim != 'KPN'"/>
