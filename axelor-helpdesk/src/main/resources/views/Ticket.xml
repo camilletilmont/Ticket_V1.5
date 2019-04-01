@@ -53,10 +53,15 @@
 			</panel>
 		
 		<!-- Custom Sujet -->
-		 <field name="sujetSelect" required="true" />
-  		 <field name="typeSujet" hideIf="sujetSelect == null"/>
-		<field name="partenaireSelect" hideIf="sujetSelect == null"/>
+		 <field name="sujetSelect" required="true"/>
+    		<field name="typeSujet" hideIf="sujetSelect == null"/>
     		<field name="motifSAV" hideIf="typeSujet != 'SAV' || sujetSelect == null"/>
+    		<field name="motifAvenant" hideIf="typeSujet != 'Avenant' || sujetSelect == null" title="Motif Avenant" selection="helpdesk.ticket.apf.panne.produit1.select"/>
+    		<field name="partenaire" hideIf="sujetSelect == null || sujetSelect == 'Montres Internationales'" title="Distributeur" selection="helpdesk.ticket.custom.un.select"/>
+    		<field name="partenaireInter" showIf="sujetSelect == 'Montres Internationales'"/>
+    		<field name="codeApport" colSpan="3" showIf="partenaire == 'Partenaire'"/>
+    		<field name="apport" colSpan="3" showIf="partenaire == 'Partenaire'" />
+    		
     		<field name="slaPolicy" showTitle="false" readonly="true" hideIf="statusSelect >= slaPolicy.reachStageSelect">
       			<viewer><![CDATA[
 				<h3>
@@ -76,10 +81,10 @@
    			<field name="numCtr" colSpan="6" min="10" max="10" />
     			<field name="souscripteurCtr" colSpan="6"/>
                 	<field name="typeContrat" colSpan="2" required="true" />
-                	<field name="efsSelect" colSpan="3" required="true" />
+                	<field name="efsSelect" colSpan="3" hideIf="sujetSelect == 'Montres Internationales'" />
 			<field name="groupamaSelect" colSpan="2" showIf="efsSelect == 'Groupama'" />
 			<field name="utilisateurCtr" colSpan="5" required="true"/>
-                	<field name="typeMaterielCtr"  colSpan="6" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile'"/>
+                	<field name="typeMaterielCtr"  colSpan="6" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile' || sujetSelect == 'Montres Internationales'"/>
                 	<field name="testCtr" widget="inline-checkbox"  colSpan="2" hideIf="typeSujet == 'SAV'"/>
                 	<field name="demoCtr" widget="inline-checkbox"  colSpan="2" hideIf="typeSujet == 'SAV'"/>
                 	<field name="pretCtr" widget="inline-checkbox" colSpan="2" hideIf="typeSujet == 'SAV'"/>
@@ -96,10 +101,10 @@
   			  <field name="numCtr" colSpan="6" min="10" max="10" />
   			 <field name="souscripteurCtr" colSpan="6"/>
   			  <field name="typeContrat" colSpan="2" required="true" />
-  			  <field name="efsSelect" colSpan="3" required="true" />
+  			  <field name="efsSelect" colSpan="3" hideIf="sujetSelect == 'Montres Internationales'" />
 			<field name="groupamaSelect" colSpan="2" showIf="efsSelect == 'Groupama'" />
 			<field name="utilisateurCtr" colSpan="5" required="true"/>
-  			  <field name="typeMaterielCtr" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile'" colSpan="6"/>    
+  			  <field name="typeMaterielCtr" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile' || sujetSelect == 'Montres Internationales'" colSpan="6"/>    
   			  <field name="checkNeuf" widget="inline-checkbox" colSpan="3"/>
   			  <field name="checkRecon" widget="inline-checkbox" colSpan="3"/>
 			<field name="checkFacturation1" widget="inline-checkbox" colSpan="3"/>
@@ -108,14 +113,14 @@
 		
 		<!-- Custom Panel Avenant -->
 		
-  		<panel name="avenantPanel" title="Avenant" showIf="typeSujet == 'Avenant' &amp;&amp; sujetSelect != 'Travailleur Isole' &amp;&amp; sujetSelect != 'Previ-assistance Mobile' " colSpan="12" canCollapse="true">
+  		<panel name="avenantPanel" title="Avenant" showIf="typeSujet == 'Avenant'" colSpan="12" canCollapse="true">
   			  <field name="numCtr" colSpan="6" min="10" max="10" />
   			  <field name="souscripteurCtr" colSpan="6"/>
   			  <field name="typeContrat" colSpan="2" required="true" />
-  			  <field name="efsSelect" colSpan="3" required="true" />
+  			  <field name="efsSelect" colSpan="3" hideIf="sujetSelect == 'Montres Internationales'" />
 			<field name="groupamaSelect" colSpan="2" showIf="efsSelect == 'Groupama'" />
 			<field name="utilisateurCtr" colSpan="5" required="true"/>
-  			  <field name="typeMaterielCtr" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile'" colSpan="6"/>
+  			  <field name="typeMaterielCtr" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile' || sujetSelect == 'Montres Internationales'" colSpan="6"/>
    			 <field name="nomCommercial" showIf="sujetSelect == 'Travailleur Isole'" colSpan="6"/>
   		</panel>
 
@@ -173,7 +178,9 @@
                 <field name="modelMontre" colSpan="4" />
 		<field name="numIMEI" colSpan="4" min="15" max="15" />
                 <field name="numTransmetteur" colSpan="4" min="10" max="10" hideIf="sujetSelect == 'Previ-assistance Standard + Mobile' || sujetSelect == 'Previ-assistance Premium + Mobile'" />
-		<field name="carteSimMontre" colSpan="4"/>
+		<field name="carteSimMontre" colSpan="4" hideIf="sujetSelect == 'Montres Internationales'"/>
+    		<field name="carteSimMontreInter" colSpan="4" showIf="sujetSelect == 'Montres Internationales'"/>
+		
 		<field name="numSimMontre" colSpan="4" min="13" max="14" />
 		<field name="contreAppelMontre" colSpan="4" min="10" max="15" />
                 <field name="optAidantMontre" widget="inline-checkbox" colSpan="12"/>
@@ -191,8 +198,10 @@
 		
 		<panel  name="livraisonCtrSav" title="Mode Livraison" hideIf="sujetSelect == null" colSpan="12" canCollapse="true" >
                 <field name="modeLivraison"/>
-                <field name="exped" />
-		<field name="adressCtr" />
+    		<field name="exped"/>
+   		 <field name="envoiChrono" widget="inline-checkbox" colSpan="3" readonlyIf="checkCustom2 == true" />
+    		<field name="envoiCourrier" widget="inline-checkbox" readonlyIf="checkCustom1 == true" colSpan="3"/>
+    		<field name="adressCtr"/>
         </panel>
 
 
