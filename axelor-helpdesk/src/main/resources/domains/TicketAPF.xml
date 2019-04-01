@@ -24,6 +24,9 @@
                 <string name="modele" title="Modele :" />
                 <string name="numTransmetteur" title="N° du Transmetteur :" />
                 <string name="numSerie" title="N° Serie :" />
+	  
+	  	<boolean name="avecImei" title="Avec N° IMEI" default="false" />
+	  	<boolean name="sansImei" title="Sans N° IMEI" default="false" />
 
 		                        <!-- Reception -->
                         <boolean name="recepTransmetteur" title="Transmetteur" default="false" />
