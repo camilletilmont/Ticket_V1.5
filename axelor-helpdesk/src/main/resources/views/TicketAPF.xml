@@ -69,7 +69,7 @@
 
                 <panel name="tynTransPanel" title="Tynetec" colSpan="12" showIf="matosAPF == 'Tynetec'" >
                         <field name="numSerie" min="8" max="8" />
-                        <field name="modele" min="6" max="6" />
+                        <field name="modeleTyn"/>
                 </panel>
                  <!-- Reception -->
                 <panel name="recepTynPanel" title="Reception Tynetec" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tynetec'">
@@ -164,7 +164,8 @@
                 <panel name="tabTransPanel" title="Tablette" colSpan="12" showIf="matosAPF == 'Tablette'" >
                         <field name="numSerie" min="10" max="10" colSpan="5" />
                         <field name="carteSim" colSpan="2" />
-			<field name="numSim" colSpan="5" min="13" max="19"/>
+			<field name="numSim" title="N° Sim Orange :" colSpan="6" min="13" max="13" hideIf="carteSim != 'Orange'"/>
+    			<field name="numSim" title="N° Sim KPN" colSpan="6" min="19" max="19" hideIf="carteSim != 'KPN'"/>
                 </panel>
                  <!-- Reception -->
                 <panel name="recepTabPanel" title="Reception Tablette" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tablette'">
@@ -202,9 +203,12 @@
                 <!-- Montre -->
 
                 <panel name="montreTransPanel" title="Montre" colSpan="12" showIf="matosAPF == 'Montre'" >
-                        <field name="modelMontre" colSpan="5"/>
-			<field name="carteSimMontre" colSpan="2" />
-                        <field name="numSim" colSpan="5" min="13" max="19" />
+                       <field name="modelMontre" colSpan="5"/>
+    			<field name="avecImei" colSpan="3" widget="inline-checkbox" readonlyIf="sansImei == true"/>
+    			<field name="sansImei" colSpan="3" widget="inline-checkbox" readonlyIf="avecImei == true" />
+    			<field name="carteSimMontre" colSpan="2"/>
+   			 <field name="numSim" title="N° Sim Orange :" colSpan="4" min="13" max="13" hideIf="carteSimMontre != 'Orange'"/>
+    			<field name="numSim" title="N° Sim KPN" colSpan="4" min="19" max="19" hideIf="carteSimMontre != 'KPN'"/>
                 </panel>
                  <!-- Reception -->
                 <panel name="recepMontrePanel" title="Reception Montre" colSpan="12" canCollapse="true" showIf="matosAPF == 'Montre'">
