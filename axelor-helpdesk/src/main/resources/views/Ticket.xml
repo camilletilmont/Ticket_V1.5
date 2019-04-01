@@ -56,7 +56,7 @@
 		 <field name="sujetSelect" required="true"/>
     		<field name="typeSujet" hideIf="sujetSelect == null"/>
     		<field name="motifSAV" hideIf="typeSujet != 'SAV' || sujetSelect == null"/>
-    		<field name="motifAvenant" hideIf="typeSujet != 'Avenant' || sujetSelect == null" title="Motif Avenant" selection="helpdesk.ticket.apf.panne.produit1.select"/>
+    		<field name="motifAvenant" hideIf="typeSujet != 'Avenant' || sujetSelect == null" />
     		<field name="partenaire" hideIf="sujetSelect == null || sujetSelect == 'Montres Internationales'" selection="helpdesk.ticket.partenaire.select"/>
     		<field name="partenaireInter" showIf="sujetSelect == 'Montres Internationales'"/>
     		<field name="codeApport" colSpan="3" showIf="partenaire == 'Partenaire'"/>
