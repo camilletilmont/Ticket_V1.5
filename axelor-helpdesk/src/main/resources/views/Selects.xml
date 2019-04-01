@@ -33,6 +33,16 @@
                         <option value="1">a</option>
                         <option value="2">b</option>
                 </selection>
+	
+	<selection name="helpdesk.ticket.custom.trois.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+
+	<selection name="helpdesk.ticket.custom.quatre.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
 
 	<!-- Custom Status apf -->
 	
@@ -82,6 +92,13 @@
                         <option value="Passion 4">Passion 4</option>
                 </selection>
 
+	<!-- Custom Modèle Tynetec -->
+	
+	<selection name="helpdesk.ticket.model.montre.select">
+			<option value="ZSA 520">ZSA 520</option>
+                        <option value="ZSA 521">ZSA 521</option>
+			<option value="ZSA 522">ZSA 522</option>
+                </selection>
 	<!-- Custom Carte Sim -->
 		<selection name="helpdesk.ticket.sim.select">
 			<option value="Orange">Orange</option>
@@ -92,6 +109,12 @@
                 <selection name="helpdesk.ticket.type.contrat.select">
 			<option value="Individuel">Individuel</option>
 			<option value="Couple">Couple</option>
+		</selection>
+	
+	<!-- Custom Motif Avenant Contrat -->
+                <selection name="helpdesk.ticket.motif.avenant.select">
+			<option value="Changement de Formule">Changement de Formule</option>
+			<option value="Changement de Souscripteur">Changement de Souscripteur</option>
 		</selection>
 
 	<!-- Custom Materiel Base -->
@@ -145,10 +168,13 @@
 			<option value="Previ-assistance Premium + Mobile">Previ-assistance Premium + Mobile</option>
 			<option value="Previ-assistance Mobile">Previ-assistance Mobile</option>
                         <option value="Travailleur Isole">Travailleur Isole (PTI/DATI)</option>
+			<option value="Montres Internationales">Montres Internationales</option>
                         <option value="Autre">Autre</option>
 		</selection>
 
 		<!-- Custom etat et panne par produit -->
+		
+	
 		<selection name="helpdesk.ticket.apf.etat.tynetec.select">
 			<option value="Rayure Façade">Rayure Façade</option>
 			<option value="Bouton(s) boitier rayé(s)">Bouton(s) boitier rayé(s)</option>
@@ -159,6 +185,8 @@
                         <option value="Impossibilité de joindre centre d'écoute">Impossibilité de joindre centre d'écoute</option>
                         <option value="Pavé Numérique non fonctionnel">Pavé Numérique non fonctionnel</option>
 			<option value="Micro HS">Micro HS</option>
+			<option value="Problème Son">Problème Son</option>
+                        <option value="Fil d'Antenne Défectueux">Fil d'Antenne Défectueux</option>
 			<option value="Autre">Autre</option>
                 </selection>
 
@@ -169,6 +197,8 @@
                 </selection>
 
 		<selection name="helpdesk.ticket.apf.panne.tablette.select">
+			 <option value="Ne Flashe Pas">Ne Flashe Pas</option>
+			 <option value="Ne Charge Pas">Ne Charge Pas</option>
                         <option value="Autre">Autre</option>
                 </selection>
 
@@ -191,6 +221,9 @@
                 </selection>
 
 		<selection name="helpdesk.ticket.apf.panne.montre.select">
+			<option value="Support Carte Sim Cassé">Support Carte Sim Cassé</option>
+			<option value="Ne Flashe Pas">Ne Flashe Pas</option>
+			 <option value="Ne Charge Pas">Ne Charge Pas</option>
                         <option value="Autre">Autre</option>
                 </selection>
 
@@ -214,12 +247,10 @@
 	<!-- Custom Partenaire Base -->
 	
 		<selection name="helpdesk.ticket.partenaire.select">
-			<option value="GDS">GDS</option>
-                        <option value="Cassiopea">Cassiopea</option>
-			<option value="Una marmande">Una marmande</option>
-			<option value="Cyprian">Cyprian</option>
+			<option value="Réseau">Réseau</option>
+                        <option value="Internet">Internet</option>
 			<option value="Minifone">Minifone</option>
-			<option value="Senioradom">Senioradom</option>
+			<option value="Partenaire">Partenaire</option>
                 </selection>
 		
 	<!-- Custom EFS Groupama -->
