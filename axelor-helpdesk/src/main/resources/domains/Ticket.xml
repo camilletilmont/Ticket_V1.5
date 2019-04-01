@@ -19,6 +19,7 @@
 	  <string name="codeApport" title="Code Apporteur : " />
 	  <string name="apport" title="Apporteur" />
 	  <string name="motifSAV" title="Motif SAV : " />
+	   <string name="motifAvenant" title="Motif Avenant" selection="helpdesk.ticket.motif.avenant.select"/>
 	  
 	        <!-- Contrat  -->
                 <string name="numCtr" title="N° de Contrat :" max="11"/>
