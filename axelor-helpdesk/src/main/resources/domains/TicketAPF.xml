@@ -24,6 +24,7 @@
                 <string name="modele" title="Modele :" />
                 <string name="numTransmetteur" title="N° du Transmetteur :" />
                 <string name="numSerie" title="N° Serie :" />
+	  	<string name="modeleTyn" title="Modèle" selection="helpdesk.ticket.model.tynetec.select"/>
 	  
 	  	<boolean name="avecImei" title="Avec N° IMEI" default="false" />
 	  	<boolean name="sansImei" title="Sans N° IMEI" default="false" />
