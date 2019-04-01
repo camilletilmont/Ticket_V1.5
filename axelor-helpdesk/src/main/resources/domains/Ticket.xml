@@ -14,14 +14,17 @@
 
                 <string name="sujetSelect" title="Sujet" selection="helpdesk.ticket.sujet.select"/>
                 <string name="typeSujet" title="Type Sujet" selection="helpdesk.ticket.type.sujet.select" />
-	  <string name="partenaireSelect" title="Partenaire" selection="helpdesk.ticket.partenaire.select"/>
+	  <string name="partenaireSelect" title="Distributeur" selection="helpdesk.ticket.partenaire.select"/>
+	  <string name="partenaireInter" title="Distributeur :" />
+	  <string name="codeApport" title="Code Apporteur : " />
+	  <string name="apport" title="Apporteur" />
 	  <string name="motifSAV" title="Motif SAV : " />
 	  
 	        <!-- Contrat  -->
                 <string name="numCtr" title="N° de Contrat :" max="11"/>
 		<string name="nomCommercial" title="Commercial En Charge :" max="30" />
                 <string name="typeMaterielCtr" title="Materiel" selection="helpdesk.ticket.materiel.domicile.select"/> 
-                <string name="utilisateurCtr" title="Utilisateur :" />
+                <string name="utilisateurCtr" title="Utilisateur (Nom, Prenom) :" />
                	<string name="souscripteurCtr" title="Souscripteur :" />
 		 <boolean name="testCtr" title="Test" default="false" />
                 <boolean name="demoCtr" title="Demo" default="false" />
@@ -78,9 +81,12 @@
                 <string name="smsOdyssey" title="SMS Odyssey :" />
 		<string name="modeLivraison" title="Livraison" selection="helpdesk.ticket.mode.livraison.select"/>
 		<string name="adressCtr" title="Adresse :" />
+	  	<boolean name="envoiChrono" title="Envoi Chronopost" default="false" />
+	  	<boolean name="envoiCourrier" title="Envoi Courrier Simple" default="false" />
 		<date name="exped" title="Date Expedition" />
 	  <string name="contreAppelMontre" title="Contre-Appel Montre :" />
 	  <string name="carteSimMontre" title="Carte Sim" selection="helpdesk.ticket.sim.select" />
+	  <string name="carteSimMontreInter" title="Carte Sim :" />
 	  <string name="numSimMontre" title="N° Sim :" />
 
 	  <!-- Button en plus pour prochains produits -->
