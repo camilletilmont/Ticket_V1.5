@@ -81,7 +81,7 @@
    			<field name="numCtr" colSpan="6" min="10" max="10" />
     			<field name="souscripteurCtr" colSpan="6"/>
                 	<field name="typeContrat" colSpan="2" required="true" />
-                	<field name="efsSelect" colSpan="3" hideIf="sujetSelect == 'Montres Internationales'" />
+                	<field name="efsSelect" colSpan="3" required="true" />
 			<field name="groupamaSelect" colSpan="2" showIf="efsSelect == 'Groupama'" />
 			<field name="utilisateurCtr" colSpan="5" required="true"/>
                 	<field name="typeMaterielCtr"  colSpan="6" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile' || sujetSelect == 'Montres Internationales'"/>
@@ -101,7 +101,7 @@
   			  <field name="numCtr" colSpan="6" min="10" max="10" />
   			 <field name="souscripteurCtr" colSpan="6"/>
   			  <field name="typeContrat" colSpan="2" required="true" />
-  			  <field name="efsSelect" colSpan="3" hideIf="sujetSelect == 'Montres Internationales'" />
+  			  <field name="efsSelect" colSpan="3" required="true" />
 			<field name="groupamaSelect" colSpan="2" showIf="efsSelect == 'Groupama'" />
 			<field name="utilisateurCtr" colSpan="5" required="true"/>
   			  <field name="typeMaterielCtr" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile' || sujetSelect == 'Montres Internationales'" colSpan="6"/>    
@@ -117,7 +117,7 @@
   			  <field name="numCtr" colSpan="6" min="10" max="10" />
   			  <field name="souscripteurCtr" colSpan="6"/>
   			  <field name="typeContrat" colSpan="2" required="true" />
-  			  <field name="efsSelect" colSpan="3" hideIf="sujetSelect == 'Montres Internationales'" />
+  			  <field name="efsSelect" colSpan="3" required="true" />
 			<field name="groupamaSelect" colSpan="2" showIf="efsSelect == 'Groupama'" />
 			<field name="utilisateurCtr" colSpan="5" required="true"/>
   			  <field name="typeMaterielCtr" hideIf="sujetSelect == 'Travailleur Isole' || sujetSelect == 'Previ-assistance Mobile' || sujetSelect == 'Montres Internationales'" colSpan="6"/>
