@@ -270,7 +270,7 @@
 		<panel name="actionsPanel" sidebar="true">
                         <button name="transTicketBtn" title="Transmission Arkea"  icon="fa-play" hideIf="statusSelect > 0" onClick="save,action-ticket2-group-on-start"/>
                         <button name="reconTicketBtn" title="Reconditionnement" hideIf="statusSelect > 1" onClick="save,action-ticket2-group-on-validate"/>
-                        <button name="expedTicketBtn" title="Expedié à Arkea" icon="fa-check" css="btn-danger" hideIf="statusSelect > 2" onClick="save,action-ticket2-group-on-close" readonlyIf="arkeaOkAPF == false"/>
+                        <button name="expedTicketBtn" title="Expedié à Arkea" icon="fa-check" css="btn-danger" hideIf="statusSelect > 2" onClick="save,action-ticket2-group-on-close"/>
 			<field name="arkeaOkAPF" widget="inline-checkbox" onChange="save"/>
                 </panel>
 
