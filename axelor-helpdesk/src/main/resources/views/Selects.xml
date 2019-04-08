@@ -44,6 +44,26 @@
                         <option value="2">b</option>
                 </selection>
 
+	 <selection name="helpdesk.ticket.custom.cinq.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+
+	<selection name="helpdesk.ticket.custom.six.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+	
+	<selection name="helpdesk.ticket.custom.sept.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+
+	<selection name="helpdesk.ticket.custom.huit.select">
+                        <option value="1">a</option>
+                        <option value="2">b</option>
+                </selection>
+	
 	<!-- Custom Status apf -->
 	
 	<selection name="helpdesk.status.apf.select">
