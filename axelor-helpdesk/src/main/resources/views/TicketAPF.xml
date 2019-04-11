@@ -68,7 +68,7 @@
                 <!-- Tynetec -->
 
                 <panel name="tynTransPanel" title="Tynetec" colSpan="12" showIf="matosAPF == 'Tynetec'" >
-                        <field name="numSerie" min="8" max="8" />
+                        <field name="numSerie" min="8" max="11" />
                         <field name="modeleTyn"/>
                 </panel>
                  <!-- Reception -->
@@ -119,7 +119,7 @@
 
                 <panel name="solTransPanel" title="Solem" colSpan="12" showIf="matosAPF == 'Solem'" >
                         <field name="numTransmetteur" min="8" max="8" />
-                        <field name="numSerie" min="10" max="10" />
+                        <field name="numSerie" min="8" max="11" />
                 </panel>
                  <!-- Reception -->
                 <panel name="recepSolPanel" title="Reception Solem" colSpan="12" canCollapse="true" showIf="matosAPF == 'Solem'">
@@ -162,10 +162,10 @@
                 <!-- Tablette -->
 
                 <panel name="tabTransPanel" title="Tablette" colSpan="12" showIf="matosAPF == 'Tablette'" >
-                        <field name="numSerie" min="11" max="11" colSpan="5" />
+                        <field name="numSerie" min="8" max="11" colSpan="5" />
                         <field name="carteSim" colSpan="2" />
-			<field name="numSim" title="N° Sim Orange :" colSpan="6" min="13" max="13" hideIf="carteSim != 'Orange'"/>
-    			<field name="numSim" title="N° Sim KPN" colSpan="6" min="19" max="19" hideIf="carteSim != 'KPN'"/>
+			<field name="numSim" title="N° Sim Orange :" colSpan="6" min="13" max="19" hideIf="carteSim != 'Orange'"/>
+    			<field name="numSim" title="N° Sim KPN" colSpan="6" min="13" max="19" hideIf="carteSim != 'KPN'"/>
                 </panel>
                  <!-- Reception -->
                 <panel name="recepTabPanel" title="Reception Tablette" colSpan="12" canCollapse="true" showIf="matosAPF == 'Tablette'">
@@ -207,8 +207,8 @@
     			<field name="avecImei" colSpan="3" widget="inline-checkbox" readonlyIf="sansImei == true"/>
     			<field name="sansImei" colSpan="3" widget="inline-checkbox" readonlyIf="avecImei == true" />
     			<field name="carteSimMontre" colSpan="2"/>
-   			 <field name="numSim" title="N° Sim Orange :" colSpan="4" min="13" max="13" hideIf="carteSimMontre != 'Orange'"/>
-    			<field name="numSim" title="N° Sim KPN" colSpan="4" min="19" max="19" hideIf="carteSimMontre != 'KPN'"/>
+   			 <field name="numSim" title="N° Sim Orange :" colSpan="4" min="13" max="19" hideIf="carteSimMontre != 'Orange'"/>
+    			<field name="numSim" title="N° Sim KPN" colSpan="4" min="13" max="19" hideIf="carteSimMontre != 'KPN'"/>
                 </panel>
                  <!-- Reception -->
                 <panel name="recepMontrePanel" title="Reception Montre" colSpan="12" canCollapse="true" showIf="matosAPF == 'Montre'">
